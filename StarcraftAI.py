@@ -372,12 +372,8 @@ class Noumaan(sc2.BotAI):
                 choice = np.argmax(prediction[0])
             else:
                 choice = random.randrange(0, 14)
-            #try:
+
             await self.choices[choice]()
-            #except Exception as e:
-            #    print(str(e))
-            ###### NEW CHOICE HANDLING HERE #########
-            ###### NEW CHOICE HANDLING HERE #########
             y = np.zeros(14)
             y[choice] = 1
             self.train_data.append([y, self.flipped])
@@ -385,6 +381,5 @@ class Noumaan(sc2.BotAI):
 if True:
     run_game(maps.get("AbyssalReefLE"), [
         Bot(Race.Protoss, Noumaan(use_model=False, title=1)),
-        #Bot(Race.Protoss, SentdeBot(use_model=False, title=2)),
         Computer(Race.Protoss, Difficulty.Easy),
         ], realtime=False)
