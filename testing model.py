@@ -1,6 +1,6 @@
 import tensorflow as tf
 import keras.backend.tensorflow_backend as backend
-import keras  # Keras 2.1.2 and TF-GPU 1.9.0
+import keras  
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Flatten, Activation
 from keras.layers import Conv2D, MaxPooling2D
@@ -131,7 +131,7 @@ for i in range(hm_epochs):
             print(len(train_data))
 
             test_size = 100
-            batch_size = 128  # 128 best so far.
+            batch_size = 128  
 
             x_train = np.array([i[1] for i in train_data[:-test_size]]).reshape(-1, 176, 200, 1)
             y_train = np.array([i[0] for i in train_data[:-test_size]])
